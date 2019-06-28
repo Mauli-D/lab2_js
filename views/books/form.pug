@@ -14,7 +14,7 @@ form(action=(book ? "/books/update" : "/books"), method="POST")
   .form-group
     label Category
     select.form-control(name="book[category]", required)
-      each category in ['COMIC', 'MEDICAL', 'ROMANCE', 'SPORT', 'TRAVEL']
+      each category in ['COMIC', 'SPORT', 'TRAVEL']
         option(value=category, selected=(book && book.category === category))
           = category.toLowerCase()
   

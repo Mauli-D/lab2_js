@@ -12,7 +12,7 @@ const BookSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['COMIC', 'MEDICAL', 'ROMANCE', 'SPORT', 'TRAVEL'],
+    enum: ['COMIC', 'SPORT', 'TRAVEL'],
     default: 'COMIC'
   }
 }, {
@@ -23,18 +23,6 @@ const BookSchema = new mongoose.Schema({
 BookSchema.query.comics = function () {
   return this.where({
     category: 'COMIC'
-  });
-};
-
-BookSchema.query.medical = function () {
-  return this.where({
-    category: 'MEDICAL'
-  });
-};
-
-BookSchema.query.romance = function () {
-  return this.where({
-    category: 'ROMANCE'
   });
 };
 

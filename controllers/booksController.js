@@ -13,6 +13,45 @@ exports.index = (req, res) => {
   });
 };
 
+exports.comics = (req, res) => {
+  Book.find().comics()
+  .then(books => {
+    res.render('books/index', {
+      books: books,
+      title: 'Comics'
+    });
+  })
+  .catch(err => {
+    console.error(`ERROR: ${err}`);
+  });
+};
+
+exports.sports = (req, res) => {
+  Book.find().sports()
+  .then(books => {
+    res.render('books/index', {
+      books: books,
+      title: 'Sports'
+    });
+  })
+  .catch(err => {
+    console.error(`ERROR: ${err}`);
+  });
+};
+
+exports.travels = (req, res) => {
+  Book.find().travels()
+  .then(books => {
+    res.render('books/index', {
+      books: books,
+      title: 'Travels'
+    });
+  })
+  .catch(err => {
+    console.error(`ERROR: ${err}`);
+  });
+};
+
 exports.show = (req, res) => {
   Book.findById(req.params.id)
   .then(book => {
